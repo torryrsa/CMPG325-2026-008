@@ -1,0 +1,27 @@
+enable
+configure terminal
+hostname SW-ACC-A
+vlan 10
+ name DEPT-A
+vlan 99
+ name MANAGEMENT
+exit
+spanning-tree mode rapid-pvst
+interface range fastEthernet0/6 - 7
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,99
+exit
+interface range fastEthernet0/1 - 5 , fastEthernet0/8 - 24
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+exit
+interface vlan 99
+ ip address 10.14.99.12 255.255.255.0
+ no shutdown
+exit
+ip default-gateway 10.14.99.1
+end
+write memory

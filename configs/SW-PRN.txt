@@ -1,0 +1,27 @@
+enable
+configure terminal
+hostname SW-PRN
+vlan 30
+ name PRINTER-ZONE
+vlan 99
+ name MANAGEMENT
+exit
+spanning-tree mode rapid-pvst
+interface range fastEthernet0/1 , fastEthernet0/3
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 30,99
+exit
+interface range fastEthernet0/2 , fastEthernet0/4 - 24
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+exit
+interface vlan 99
+ ip address 10.14.99.14 255.255.255.0
+ no shutdown
+exit
+ip default-gateway 10.14.99.1
+end
+write memory
