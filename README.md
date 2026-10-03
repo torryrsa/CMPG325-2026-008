@@ -61,11 +61,11 @@ The printers sit in their own segment (VLAN 30) on SW-PRN. SW-CORE-01 routes bet
 
 | Test | Result | Evidence |
 |---|---|---|
-| STP root is SW-CORE-01 | _to complete_ | `screenshots/` |
-| Redundant uplinks blocked on access switches | _to complete_ | `screenshots/` |
-| STP failover | _to complete_ | `screenshots/` |
-| HSRP roles | _to complete_ | `screenshots/` |
-| Dept A and Dept B to printer (CR8) | _to complete_ | `screenshots/` |
+| STP root is SW-CORE-01 | Pass | `screenshots/04-core01-stp-root.png` |
+| Redundant uplinks blocked on access switches | Pass | `screenshots/05-acc-a-stp-blocked-port.png`, `06-acc-b-stp.png`, `07-prn-stp.png` |
+| STP failover | Pass | `screenshots/10-failover-before.png`, `11-failover-during.png`, `12-failover-after.png` |
+| HSRP roles | Pass | `screenshots/14-core01-hsrp.png`, `15-core02-hsrp.png` |
+| Dept A and Dept B to printers (CR8) | Pass | `screenshots/20-test-pc-a-to-printer0.png`, `21-test-pc-b-to-printer0.png`, `22-test-pc-a-to-printer1.png` |
 
 ## Repository structure
 
